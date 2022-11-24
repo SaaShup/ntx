@@ -1,15 +1,22 @@
-/*!
-* Start Bootstrap - Freelancer v7.0.6 (https://startbootstrap.com/theme/freelancer)
-* Copyright 2013-2022 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
+function sendEmail() {
+    Email.send({
+        SecureToken : "7942962c-8f0a-415a-8b2f-9779576a83e7",
+        To : 'lav@lvbh.xyz',
+        From : "contact@ntx.lu",
+        Subject : "NTX contact form",
+        Body : "Name: " + document.body.querySelector('#name') + "\nEmail: " + document.body.querySelector('#email') + 
+        "\nPhone: " + document.body.querySelector('#phone') + "\nMessage:" + document.body.querySelector('#message') + "\n"
+    }).then(function(message) {
+        document.body.querySelector('#name').value = ""
+        document.body.querySelector('#email').value = ""
+        document.body.querySelector('#phone').value = ""
+        document.body.querySelector('#message').value = ""
+
+        console.log(message)
+    });
+}
 
 window.addEventListener('DOMContentLoaded', event => {
-
-    // Navbar shrink function
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
         if (!navbarCollapsible) {
@@ -22,14 +29,11 @@ window.addEventListener('DOMContentLoaded', event => {
         }
 
     };
-
-    // Shrink the navbar 
+    
     navbarShrink();
 
-    // Shrink the navbar when page is scrolled
     document.addEventListener('scroll', navbarShrink);
 
-    // Activate Bootstrap scrollspy on the main nav element
     const mainNav = document.body.querySelector('#mainNav');
     if (mainNav) {
         new bootstrap.ScrollSpy(document.body, {
@@ -38,7 +42,6 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     };
 
-    // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
     const responsiveNavItems = [].slice.call(
         document.querySelectorAll('#navbarResponsive .nav-link')
