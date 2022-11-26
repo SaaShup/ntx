@@ -10,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
         type="text/css" />
@@ -269,7 +270,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-xl-7">
-                    <div id="contactForm" >
+                    <form id="contactForm" >
                         <div class="form-floating mb-3">
                             <input class="form-control" id="name" type="text" placeholder="Enter your name..."
                                 data-sb-validations="required" />
@@ -307,9 +308,10 @@
                                     href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                             </div>
                         </div>
+                        <div class="cf-turnstile text-center" data-sitekey="0x4AAAAAAABYOh68nEZbHeDj" data-theme="light"></div>
                         <button class="btn btn-secondary btn-xl text-white" id="submitButton" data-bs-toggle="modal" data-bs-target="#EmailSent" onclick="sendEmail();"
                             type="submit">Send</button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
