@@ -15,8 +15,8 @@ function sendEmail() {
         To : 'lav@lvbh.xyz',
         From : "contact@ntx.lu",
         Subject : "NTX contact form",
-        Body : "Name: " + document.body.querySelector('#name') + "\nEmail: " + document.body.querySelector('#email') + 
-        "\nPhone: " + document.body.querySelector('#phone') + "\nMessage:" + document.body.querySelector('#message') + "\n"
+        Body : "Name: " + document.body.querySelector('#name').value + "\nEmail: " + document.body.querySelector('#email').value + 
+        "\nPhone: " + document.body.querySelector('#phone').value + "\nMessage:" + document.body.querySelector('#message').value + "\n"
     }).then(function(message) {
         document.body.querySelector('#name').value = ""
         document.body.querySelector('#email').value = ""
@@ -69,5 +69,5 @@ window.addEventListener('DOMContentLoaded', event => {
 
 function captchaSuccess(t) {
     console.log(t)
-    Captcha = true;
+    if (t) Captcha = true;
 }
