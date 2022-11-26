@@ -270,7 +270,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-xl-7">
-                    <form id="contactForm" >
+                    <div id="contactForm" >
                         <div class="form-floating mb-3">
                             <input class="form-control" id="name" type="text" placeholder="Enter your name..."
                                 data-sb-validations="required" />
@@ -308,10 +308,10 @@
                                     href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                             </div>
                         </div>
-                        <div class="cf-turnstile text-center" data-sitekey="0x4AAAAAAABYOh68nEZbHeDj" data-theme="light"></div>
-                        <button class="btn btn-secondary btn-xl text-white" id="submitButton" data-bs-toggle="modal" data-bs-target="#EmailSent" onclick="sendEmail();"
+                        <div class="cf-turnstile text-center" data-sitekey="0x4AAAAAAABYOh68nEZbHeDj" data-theme="light" data-callback="captchaSuccess"></div>
+                        <button class="btn btn-secondary btn-xl text-white" id="submitButton" onclick="sendEmail();"
                             type="submit">Send</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

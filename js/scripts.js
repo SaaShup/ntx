@@ -1,5 +1,16 @@
+
+var Captcha = false;
+
 function sendEmail() {
-    Email.send({
+    for (let n of ['name', 'email', 'phone', 'message']) {
+        if (document.body.querySelector('#' + n).value === "") {
+            document.body.querySelector('#' + n).classList.add('bg-warning')
+            return setTimeout(function() {
+                document.body.querySelector('#' + n).classList.remove('bg-warning')
+            },2000)
+        }
+    }
+    if (Captcha) Email.send({
         SecureToken : "7942962c-8f0a-415a-8b2f-9779576a83e7",
         To : 'lav@lvbh.xyz',
         From : "contact@ntx.lu",
@@ -11,7 +22,7 @@ function sendEmail() {
         document.body.querySelector('#email').value = ""
         document.body.querySelector('#phone').value = ""
         document.body.querySelector('#message').value = ""
-
+        new bootstrap.Modal(document.getElementById('EmailSent')).show()
         console.log(message)
     });
 }
@@ -55,3 +66,8 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+function captchaSuccess(t) {
+    console.log(t)
+    Captcha = true;
+}
